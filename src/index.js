@@ -34,9 +34,26 @@ function Intro() {
   );
 }
 
-function SkillList() {}
+function SkillList() {
+  return (
+    <div className="skill-list">
+      <Skill skill="React" emoji="💪🏻" color="#70deffff" />
+      <Skill skill="HTML+CSS" emoji="💪🏻" color="orangered" />
+      <Skill skill="JavaScript" emoji="💪🏻" color="yellow" />
+      <Skill skill="Git and GitHub" emoji="👍🏻" color="#874ab0ff" />
+      <Skill skill="Java" emoji="👍🏻" color="#fa4d72ff" />
+    </div>
+  );
+}
 
-function Skill() {}
+function Skill(props) {
+  return (
+    <div className="skill" style={{ backgroundColor: props.color }}>
+      <span>{props.skill}</span>
+      <span>{props.emoji}</span>
+    </div>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
