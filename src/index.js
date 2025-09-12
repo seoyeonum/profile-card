@@ -46,22 +46,26 @@ function SkillList() {
   return (
     <ul className="skill-list">
       {skills.map((skill) => (
-        <Skill skillObj={skill} key={skills.skill} />
+        <Skill skill={skill.skill} color={skill.color} level={skill.level} />
       ))}
     </ul>
   );
 }
 
-function Skill({ skillObj }) {
-  let emoji = '';
-  if (skillObj.level === 'advanced') emoji = '💪🏻';
-  else if (skillObj.level === 'intermediate') emoji = '👍🏻';
-  else if (skillObj.level === 'beginner') emoji = '👶🏻';
+function Skill({ skill, color, level }) {
+  // let emoji = '';
+  // if (skillObj.level === 'advanced') emoji = '💪🏻';
+  // else if (skillObj.level === 'intermediate') emoji = '👍🏻';
+  // else if (skillObj.level === 'beginner') emoji = '👶🏻';
 
   return (
-    <div className="skill" style={{ backgroundColor: skillObj.color }}>
-      <span>{skillObj.skill}</span>
-      <span>{emoji}</span>
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skill}</span>
+      <span>
+        {level === 'beginner' && '👶🏻'}
+        {level === 'intermediate' && '👍🏻'}
+        {level === 'advanced' && '💪🏻'}
+      </span>
     </div>
   );
 }
